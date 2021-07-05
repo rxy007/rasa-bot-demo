@@ -1,0 +1,263 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+  - nlu_fallback
+  - 转人工
+  - faq_贷款
+  - faq_注册
+  - 贷款
+  - 注册
+  - 服务
+
+entities:
+  - zhuce_type
+  - phone-number
+  - amount-of-money
+
+slots:
+  amount_of_money:
+    type: text
+    influence_conversation: false
+  zhucedi:
+    type: text
+    influence_conversation: false
+  phone_number:
+    type: text
+    influence_conversation: false
+  has_yes:
+    type: bool
+    influence_conversation: false
+
+  has_che:
+    type: bool
+    influence_conversation: false
+  has_fang:
+    type: bool
+    influence_conversation: false
+  has_zhi:
+    type: bool
+    influence_conversation: false
+  has_wei:
+    type: bool
+    influence_conversation: false
+  has_xin:
+    type: bool
+    influence_conversation: false
+
+  zhuce_type:
+    type: text
+    influence_conversation: false
+  zhuce_hangye:
+    type: text
+    influence_conversation: false
+  has_zhucedi:
+    type: bool
+    influence_conversation: false
+
+
+responses:
+  utter_服务:
+  - text: "我们提供的服务有：办理贷款、注册公司、个体注册、贷款流程、贷款资料、贷款时间、注册流程、注册资料、注册时间等"
+  utter_faq_注册/个体_公司_区别:
+    - text: "个体和公司的区别主要是在税务方面不同:个体工商户一般是按定税金额来交税并且涉及到个人所得税。公司是根据申报的收入来交税，并且季度收入9万以下都是免税的"
+
+  utter_faq_注册/注册资金:
+    - text: "没有注册资金的要求的呢，注册资金最低1元都可以的"
+
+  utter_faq_注册/注册资料:
+    - text: "公司：1.公司名称（3个以上） 2.法人及股东的身份证复印件及原件，您提供身份证我们都是可以帮您全程代办的呢
+              个体：负责人身份证、个体名字、租房合同和商业产权证的复印件。 "
+
+  utter_faq_注册/注册流程:
+    - text: "提交资料核名—办理执照—刻章—银行开户
+              您提交资料我们是全程代办的哦"
+
+  utter_faq_注册/注册时间:
+    - text: "公司：一般15-20个工作日，每个区具体情况不一样，可以加急
+            个体：一般2-3周"
+
+  utter_faq_注册/注册手续费:
+    - text: "目前我们有免费注册公司的活动，特别针对公司注册签订会计代理优惠力度是非常大"
+
+  utter_faq_注册/注册地政策:
+    - text: "可以考虑将新公司实际办公室选在交通最方便、房租最便宜的区，但通过顶呱呱提供的各区域免费虚拟办公室，将新公司工商、税务关系落户到减税政策和免税政策最好的区，为您减少和节约公司的日常费用开支"
+
+  utter_greet:
+  - text: "您好，很高兴为您服务，请问您要咨询注册还是贷款呢？"
+
+  utter_nlu_fallback:
+  - text: "很抱歉，我不清楚您说的是什么，请问您要办理注册还是贷款呢？回复：人工，可以转人工"
+
+  utter_goodbye:
+  - text: "拜~"
+
+  utter_deny:
+    - text: "不需要就算了！"
+
+  utter_iamabot:
+  - text: "我是你的机器人助手."
+
+  utter_faq_贷款/贷多少:
+  - text: "具体放款的额度需要根据您的个人情况和需求评估，1万到2000万我们都可以为您办理。"
+
+  utter_faq_贷款/资料:
+  - text: "（抵押/信用）所需要的资料：客户身份证明，银行卡流水，资产证明等。"
+
+  utter_faq_贷款/流程:
+  - text: "您好，我们这边的贷款流程很方便：您提交相关资料，面签合同，通过后即可放款(信用贷资料齐全当天放款，抵押贷3-9个工作日)"
+
+  utter_faq_贷款/手续费:
+  - text: "您好，我们是根据您的贷款产品、贷款渠道以及贷款周期来确定的。"
+
+  utter_faq_贷款/放款:
+  - text: "信用贷款资料齐全的情况下当天下款，抵押贷款3-9个工作日，资金急的做加急处理"
+
+  utter_faq_贷款/利息:
+  - text: "我们正常情况下银行信贷3厘-8厘，抵押2.7-6厘，具体这边需要看您的个人条件情况"
+
+  utter_faq_贷款/还款:
+  - text: "这边还款方式有等额本息、等额本金、先息后本、随借随还几种方式的，您可以根据您的实际情况选择的呢 "
+
+  utter_faq_贷款/时间:
+  - text: "信用贷款一般是1-3年还款期，最长不超过5年，抵押贷款一般可以选择2年-20年的还款周期，我们这边可以根据您的实际情况匹配相应的银行。"
+
+  utter_转人工:
+  - text: "正在为您转人工，请稍后..."
+
+  utter_ask_phone_number:
+  - text: "请问您的电话号码是多少呢？（13000000000）"
+  utter_ask_amount_of_money:
+  - text: "请问您需要多少钱呢？（10万块、50万块）"
+
+  utter_ask_has_yes:
+    - text: "{phone_number}， 是否正确？（是或不是）"
+  utter_需要贷款吗:
+    - text: "请问您需要贷款服务吗？（需要或不需要）"
+  utter_需要注册吗:
+    - text: "请问您需要注册服务吗？（需要或不需要）"
+
+  utter_ask_zhuce_type:
+  - text: "请问您是公司注册还是个体办理执照呢 ？(公司注册或个体注册)"
+
+  utter_ask_zhuce_hangye:
+  - text: "请问您打算注册什么行业呢？（互联网、物联网）"
+
+  utter_ask_has_zhucedi:
+  - text: "请问您自己是否有商用产权的注册地址呢？（有或没有）"
+
+  utter_ok:
+  - text: "好的，可以办理的，这边安排一位专业的贷款经理联系您，就利率、流程和需要的资料给到您详细的解答。"
+
+  utter_电话回复:
+  - text: "已收到，{phone_number}，我们的贷款经理会尽快和您联系"
+
+  utter_电话无效:
+  - text: "对不起，没有识别到有效电话"
+
+  utter_不能办理贷款:
+  - text: "很抱歉，这边暂时没有匹配到适合您的贷款产品，建议您咨询一下其他机构"
+
+  utter_ask_has_fang:
+  - text: "请问您名下是否有固定资产房子呢？（有或没有）"
+
+  utter_ask_has_che:
+  - text: "请问您名下是否有固定资产车子呢？（有或没有）"
+
+  utter_ask_has_zhi:
+  - text: "您生活中使用支付宝吗？（有或没有）"
+
+  utter_ask_has_wei:
+  - text: "我们微粒贷也可以申请贷款。请问您的手机微信/QQ里面有开通微粒贷吗？（有或没有）"
+
+  utter_ask_has_xin:
+  - text: "生活中有没有使用信用卡?（有或没有）"
+
+actions:
+- validate_注册_form
+- validate_贷款_form
+- action_user_info
+- action_转人工
+- action_需要贷款吗
+- action_需要注册吗
+
+forms:
+  贷款_form:
+    required_slots:
+      amount_of_money:
+        - type: from_entity
+          entity: amount-of-money
+      has_fang:
+        - type: from_intent
+          intent: affirm
+          value: true
+        - type: from_intent
+          intent: deny
+          value: false
+      has_che:
+        - type: from_intent
+          intent: affirm
+          value: true
+        - type: from_intent
+          intent: deny
+          value: false
+      has_zhi:
+        - type: from_intent
+          intent: affirm
+          value: true
+        - type: from_intent
+          intent: deny
+          value: false
+      has_wei:
+        - type: from_intent
+          intent: affirm
+          value: true
+        - type: from_intent
+          intent: deny
+          value: false
+      has_xin:
+        - type: from_intent
+          intent: affirm
+          value: true
+        - type: from_intent
+          intent: deny
+          value: false
+      phone_number:
+        - type: from_entity
+          entity: phone-number
+      has_yes:
+        - type: from_intent
+          intent: affirm
+          value: true
+        - type: from_intent
+          intent: deny
+          value: false
+  注册_form:
+    required_slots:
+      zhuce_type:
+        - type: from_entity
+          entity: zhuce_type
+      zhuce_hangye:
+        - type: from_text
+      has_zhucedi:
+        - type: from_intent
+          intent: affirm
+          value: true
+      phone_number:
+        - type: from_entity
+          entity: phone-number
+      has_yes:
+        - type: from_intent
+          intent: affirm
+          value: true
+        - type: from_intent
+          intent: deny
+          value: false
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

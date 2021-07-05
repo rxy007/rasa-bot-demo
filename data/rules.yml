@@ -1,0 +1,79 @@
+version: "2.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: greet
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: 转人工
+  steps:
+  - intent: 转人工
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_转人工
+
+- rule: 没有意图
+  steps:
+  - intent: nlu_fallback
+  - action: utter_nlu_fallback
+
+- rule: 贷款form
+  steps:
+  - intent: 贷款
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: 贷款_form
+  - active_loop: 贷款_form
+
+- rule: 停止贷款form
+  condition:
+  - active_loop: 贷款_form
+  steps:
+  - action: 贷款_form
+  - active_loop: null
+  - action: action_user_info
+
+- rule: 注册form
+  steps:
+  - intent: 注册
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: 注册_form
+  - active_loop: 注册_form
+
+- rule: 停止注册form
+  condition:
+  - active_loop: 注册_form
+  steps:
+  - action: 注册_form
+  - active_loop: null
+  - action: action_user_info
+
+- rule: faq 贷款
+  steps:
+  - intent: faq_贷款
+  - action: utter_faq_贷款
+  - action: action_需要贷款吗
+
+- rule: faq 注册
+  steps:
+  - intent: faq_注册
+  - action: utter_faq_注册
+  - action: action_需要注册吗
+
+- rule: 服务
+  steps:
+  - intent: 服务
+  - action: utter_服务

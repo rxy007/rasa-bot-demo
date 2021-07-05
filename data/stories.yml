@@ -1,0 +1,37 @@
+version: "2.0"
+
+stories:
+
+- story: faq 贷款+affirm
+  steps:
+  - intent: faq_贷款
+  - action: utter_faq_贷款
+  - action: action_需要贷款吗
+  - intent: affirm
+  - action: 贷款_form
+  - active_loop: 贷款_form
+
+- story: faq 贷款+deny
+  steps:
+  - intent: faq_贷款
+  - action: utter_faq_贷款
+  - action: action_需要贷款吗
+  - intent: deny
+  - action: utter_deny
+
+- story: faq 注册+affirm
+  steps:
+  - intent: faq_注册
+  - action: utter_faq_注册
+  - action: action_需要注册吗
+  - intent: affirm
+  - action: 注册_form
+  - active_loop: 注册_form
+
+- story: faq 注册+deny
+  steps:
+  - intent: faq_注册
+  - action: utter_faq_注册
+  - action: action_需要注册吗
+  - intent: deny
+  - action: utter_deny
